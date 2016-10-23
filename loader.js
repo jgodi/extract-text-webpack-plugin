@@ -23,6 +23,7 @@ function isCacheableCheck(flag) {
 module.exports = function(source) {
 	var query = loaderUtils.parseQuery(this.query);
 	var isCacheable = isCacheableCheck(query.isCacheable);
+	console.log('Q', query);
 	if(this.cacheable) this.cacheable(isCacheable);
 	return source;
 };
@@ -30,6 +31,7 @@ module.exports = function(source) {
 module.exports.pitch = function(request) {
 	var query = loaderUtils.parseQuery(this.query);
 	var isCacheable = isCacheableCheck(query.isCacheable);
+	console.log('Q', query);
 	if(this.cacheable) this.cacheable(isCacheable);
 	this.addDependency(this.resourcePath);
 	// We already in child compiler, return empty bundle
